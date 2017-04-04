@@ -1,0 +1,25 @@
+2017-04-04T11:16:19.129473000 40.090230s notice: Recursively removing directory /Users/kevinrogers/work/react-app-2/rethinkdb_data/tmp
+2017-04-04T11:16:19.136104000 40.096865s notice: Initializing directory /Users/kevinrogers/work/react-app-2/rethinkdb_data
+2017-04-04T11:16:19.136703000 40.097459s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/kevinrogers/work/react-app-2/rethinkdb_data' did not already exist or is empty.)
+2017-04-04T11:16:19.137115000 40.097872s notice: Running rethinkdb 2.3.5 (CLANG 8.0.0 (clang-800.0.38))...
+2017-04-04T11:16:19.159319000 40.120076s notice: Running on Darwin 16.4.0 x86_64
+2017-04-04T11:16:19.159353000 40.120109s notice: Loading data from directory /Users/kevinrogers/work/react-app-2/rethinkdb_data
+2017-04-04T11:16:19.275124000 40.235880s info: Automatically using cache size of 398 MB
+2017-04-04T11:16:19.276641000 40.237397s notice: Listening for intracluster connections on port 29015
+2017-04-04T11:16:19.287505000 40.248262s notice: Listening for client driver connections on port 28015
+2017-04-04T11:16:19.307627000 40.268383s error: Could not bind to http port: The address at localhost:8080 is reserved or already in use.
+2017-04-04T11:19:42.968600000 40.073295s notice: Running rethinkdb 2.3.5 (CLANG 8.0.0 (clang-800.0.38))...
+2017-04-04T11:19:42.987208000 40.091901s notice: Running on Darwin 16.4.0 x86_64
+2017-04-04T11:19:42.987248000 40.091939s notice: Loading data from directory /Users/kevinrogers/work/react-app-2/rethinkdb_data
+2017-04-04T11:19:43.018098000 40.122790s info: Automatically using cache size of 535 MB
+2017-04-04T11:19:43.018509000 40.123200s notice: Listening for intracluster connections on port 29015
+2017-04-04T11:19:43.021029000 40.125720s notice: Listening for client driver connections on port 28015
+2017-04-04T11:19:43.021126000 40.125817s notice: Listening for administrative HTTP connections on port 8080
+2017-04-04T11:19:43.021127000 40.125818s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-04-04T11:19:43.021130000 40.125821s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-04-04T11:19:43.021132000 40.125823s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-04-04T11:19:43.021135000 40.125826s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-04-04T11:19:43.021138000 40.125829s notice: Server ready, "Kevins_MacBook_Pro_local_nej" d9d881c1-f4f0-45cc-9385-065a04217c87
+2017-04-04T11:21:38.436437000 155.544891s info: Table ebeee9c4-bae5-4836-a21b-d3e050bfbc76: Starting a new Raft election for term 1.
+2017-04-04T11:21:38.438725000 155.547179s info: Table ebeee9c4-bae5-4836-a21b-d3e050bfbc76: Added replica on this server.
+2017-04-04T11:21:38.447905000 155.556358s info: Table ebeee9c4-bae5-4836-a21b-d3e050bfbc76: This server is Raft leader for term 1. Latest log index is 0.
