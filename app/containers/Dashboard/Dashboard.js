@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from "../../components/Button";
 import Bill from "../../components/Bill";
+import BillsStore from "../../stores/BillsStore";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -8,11 +9,25 @@ export default class Dashboard extends Component {
 
     this.state = {
       title: "Wasssup",
+      bills: BillsStore.getAll()
     };
+  }
 
+  ComponentWillMount() {
+    BillsStore.on('change', () => {
+      this.setState({
+        bills: BillsStore.getAll()
+      });
+    });
   }
 
   render() {
+    const { bills } = this.state;
+
+    const BillComponents = bills.map((bills) => {
+      return <Bill key={bills.billId} billName={bills.billName} billAmount={bills.billAmount} billCategory={bills.billCategory} billDue={bills.billDue}/>;
+    });
+
     return (
       <div className="container">
         <div className="row">
@@ -24,7 +39,7 @@ export default class Dashboard extends Component {
           </div>
         </div>
         <div className="row">
-          <Bill billName="Car Payment" billAmount="$360.20" billCategory="Auto" billDue="1/12/2017"/>
+          {BillComponents}
         </div>
       </div>
     );
