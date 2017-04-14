@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Button from "../../components/Button";
 import Bill from "../../components/Bill";
 import BillsStore from "../../stores/BillsStore";
+import * as viewActions from "../../actions/viewActions";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -9,24 +10,40 @@ export default class Dashboard extends Component {
 
     this.state = {
       title: "Wasssup",
-      bills: BillsStore.getAll()
+      bills: BillsStore.getAllBills()
     };
+
+    this.handleBillsChange = this.handleBillsChange.bind(this);
+
+    viewActions.getBills();
   }
 
-  ComponentWillMount() {
-    BillsStore.on('change', () => {
-      this.setState({
-        bills: BillsStore.getAll()
-      });
+  componentWillMount() {
+    BillsStore.on('change', this.handleBillsChange);
+  }
+
+  componentWillUnMount() {
+    BillsStore.removeListener('change', this.handleBillsChange);
+  }
+
+  handleBillsChange() {
+    this.setState({
+      bills: BillsStore.getAllBills()
     });
   }
 
   render() {
     const { bills } = this.state;
 
-    const BillComponents = bills.map((bills) => {
-      return <Bill key={bills.billId} billName={bills.billName} billAmount={bills.billAmount} billCategory={bills.billCategory} billDue={bills.billDue}/>;
-    });
+    let BillDisplay;
+
+    if (bills) {
+      BillDisplay = bills.map((bills) => {
+        return <Bill key={bills.id} billName={bills.billName} billAmount={bills.billAmount} billCategory={bills.billCategory} billDue={bills.billDue}/>;
+      });
+    } else {
+      BillDisplay = 'No Bills Found';
+    }
 
     return (
       <div className="container">
@@ -39,7 +56,7 @@ export default class Dashboard extends Component {
           </div>
         </div>
         <div className="row">
-          {BillComponents}
+          {BillDisplay}
         </div>
       </div>
     );

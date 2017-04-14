@@ -1,18 +1,7 @@
 import React, { Component } from "react";
 import InputField from "../../components/InputField";
 import SaveBillButton from "./SaveBillButton";
-
-const ReactRethinkdb = require('react-rethinkdb');
-const r = ReactRethinkdb.r;
-
-// Open a react-rethinkdb session (a WebSocket connection to the server)
-ReactRethinkdb.DefaultSession.connect({
-  host: 'localhost', // hostname of the websocket server
-  port: 8015,        // port number of the websocket server
-  path: '/db',       // HTTP path to websocket route
-  secure: false,     // set true to use secure TLS websockets
-  db: 'react_app',   // default database, passed to rethinkdb.connect
-});
+import * as databaseClient from "../../util/databaseClient";
 
 export default class AddBill extends Component {
   constructor(props) {
@@ -36,8 +25,7 @@ export default class AddBill extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let query = r.table('bills').insert(this.state);
-    ReactRethinkdb.DefaultSession.runQuery(query);
+    databaseClient.addBillToDb(this.state);
   }
 
   render() {
